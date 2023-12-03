@@ -1,8 +1,7 @@
 import asyncio
 import logging
 import sys
-from config import tg_bot, dp
-import bot.commands
+from bot.config import tg_bot, dp
 
 
 async def main() -> None:
