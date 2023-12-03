@@ -9,5 +9,5 @@ load_dotenv()
 
 TOKEN = getenv("BOT_TOKEN")
 dp = Dispatcher()
-tg_bot = Bot(TOKEN, parse_mode=ParseMode.HTML)
+bot = Bot(TOKEN, parse_mode=ParseMode.HTML)
 router = Router()
