@@ -17,10 +17,15 @@ def first_button():
 def settings():
     kb = [
         [
-            types.KeyboardButton(text='Floor'),
-            types.KeyboardButton(text='Price'),
-            types.KeyboardButton(text='Room'),
-            types.KeyboardButton(text='Paid'),
+            types.KeyboardButton(text='floor from'),
+            types.KeyboardButton(text='floor to'),
+            types.KeyboardButton(text='price from'),
+            types.KeyboardButton(text='price to'),],
+        [
+            types.KeyboardButton(text='room'),
+            types.KeyboardButton(text='paid'),
+            types.KeyboardButton(text='district'),
+
         ]
     ]
     keyboard = types.ReplyKeyboardMarkup(
