@@ -18,6 +18,7 @@ async def command_start_handler(message: types.Message) -> None:
                      f"I am your assistant for finding an apartment in Baku!\n"
                      f"Tell me what kind of apartment you are looking for")
     await message.answer(start_message, reply_markup=key_board.first_button())
+    await sent_apart(message)
 
 
 @dp.message(F.text.lower() == 'refresh')
@@ -33,4 +34,13 @@ async def setting(message: types.Message) -> None:
     """
     Displaying the keyboard with data settings
     """
-    await message.answer('What do you want to change?', reply_markup=key_board.settings())
+    await message.answer('What do you want to change?',
+                         reply_markup=key_board.settings())
+
+
+async def sent_apart(message: types.Message) -> None:
+    while True:
+        new_apartment = parse_bina(params)
+        chat_id = message.from_user.id
+        await bot.send_message(chat_id=str(chat_id), text=str(new_apartment))
+        await sleep(10)

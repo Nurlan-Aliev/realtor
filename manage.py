@@ -2,7 +2,7 @@ import asyncio
 import logging
 import sys
 from bot_dir.config import bot, dp
-import bot_dir.commands
+from bot_dir import commands, bot_setting
 
 
 async def main() -> None:
