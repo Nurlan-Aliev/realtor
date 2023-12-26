@@ -1,3 +1,4 @@
 .idea
 db/.env
 bot_dir/.env
+/venv
