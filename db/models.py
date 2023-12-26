@@ -1,21 +1,16 @@
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
-from sqlalchemy import text, String
-import enum
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy import String
 import datetime
-from typing import Optional
+from db.database import Base
 
 
-class Base(DeclarativeBase):
-    pass
-
-
-class User(Base):
+class Users(Base):
     __tablename__ = "user_account"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    tg_id: Mapped[int]
+    tg_id: Mapped[int] = mapped_column(unique=True)
     name: Mapped[str] = mapped_column(String(30))
-    start: Mapped[bool]
+    start: Mapped[bool] = mapped_column(default=True)
 
 
 class Apartment(Base):
@@ -25,5 +20,3 @@ class Apartment(Base):
     id_apartment: Mapped[int]
     name: Mapped[str] = mapped_column(String(30))
     created_at = Mapped[datetime.datetime]
-
-    user: Mapped["User"] = relationship(back_populates="addresses")
